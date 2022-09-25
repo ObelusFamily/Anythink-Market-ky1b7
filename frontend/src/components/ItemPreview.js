@@ -4,6 +4,8 @@ import agent from "../agent";
 import { connect } from "react-redux";
 import { ITEM_FAVORITED, ITEM_UNFAVORITED } from "../constants/actionTypes";
 
+const ITEM_IMAGE_PLACEHOLDER_URL = "/placeholder.png";
+
 const mapDispatchToProps = (dispatch) => ({
   favorite: (slug) =>
     dispatch({
@@ -29,6 +31,9 @@ const ItemPreview = (props) => {
     }
   };
 
+  const itemImageUrl =
+    item.image?.length >= 1 ? item.image : ITEM_IMAGE_PLACEHOLDER_URL;
+
   return (
     <div
       className="card bg-dark border-light p-3"
@@ -36,7 +41,7 @@ const ItemPreview = (props) => {
     >
       <img
         alt="item"
-        src={item.image}
+        src={itemImageUrl}
         className="card-img-top item-img"
         style={{ borderRadius: "20px" }}
       />

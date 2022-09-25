@@ -10,4 +10,12 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 
 ## First setup
 
-**[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+To setup the project on a new machine:
+
+- First, make sure you have docker installed
+- Clone this repository
+- Run the backend and frontend by running the following command in the project's root directory:
+  ```sh
+  docker-compose up
+  ```
+- Now that the project is running, you should be able to access it at [http://localhost:3001](http://localhost:3001). Go there and click "register" (or just click [here](http://localhost:3001/register)) to create a new user.

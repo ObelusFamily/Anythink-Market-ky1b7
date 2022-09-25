@@ -41,8 +41,6 @@ class Item extends React.Component {
     const markup = {
       __html: marked(this.props.item.description, { sanitize: true }),
     };
-    const isImageExists =
-      this.props.item.image != null && this.props.item.image.length >= 1;
     const canModify =
       this.props.currentUser &&
       this.props.currentUser.username === this.props.item.seller.username;
@@ -50,22 +48,16 @@ class Item extends React.Component {
       <div className="container page">
         <div className="text-dark">
           <div className="row bg-white p-4">
-            {isImageExists && (
-              <div className="col-6">
-                <img
-                  src={this.props.item.image}
-                  alt={this.props.item.title}
-                  className="item-img"
-                  style={{
-                    height: "500px",
-                    width: "100%",
-                    borderRadius: "6px",
-                  }}
-                />
-              </div>
-            )}
+            <div className="col-6">
+              <img
+                src={this.props.item.image}
+                alt={this.props.item.title}
+                className="item-img"
+                style={{ height: "500px", width: "100%", borderRadius: "6px" }}
+              />
+            </div>
 
-            <div className={isImageExists ? "col-6" : "col-12"}>
+            <div className="col-6">
               <h1>{this.props.item.title}</h1>
               <ItemMeta item={this.props.item} canModify={canModify} />
               <div dangerouslySetInnerHTML={markup}></div>

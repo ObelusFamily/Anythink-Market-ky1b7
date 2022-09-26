@@ -12,6 +12,7 @@ const SearchBox = (props) => {
     }
 
     props.onTitleSearch(
+      newValue,
       (page) => agent.Items.byTitle(newValue, page),
       agent.Items.byTitle(newValue)
     );

@@ -1,8 +1,22 @@
 import React from "react";
+import agent from "../../agent";
 
 // Using inline styles to sort of match the given design easily, but in reality we would probably use separate style files in this project
 
-const SearchBox = () => {
+const SearchBox = (props) => {
+  const onTextChange = (event) => {
+    const newValue = event.target.value;
+    if (newValue.length < 3) {
+      props.onResetSearch();
+      return;
+    }
+
+    props.onTitleSearch(
+      (page) => agent.Items.byTitle(newValue, page),
+      agent.Items.byTitle(newValue)
+    );
+  };
+
   return (
     <div
       style={{
@@ -21,6 +35,7 @@ const SearchBox = () => {
       <input
         id="search-box"
         type="text" // Not using "search" because we don't want to have a delete button
+        onChange={onTextChange}
         placeholder="what is it that you truly desire?"
         style={{
           outline: "unset",

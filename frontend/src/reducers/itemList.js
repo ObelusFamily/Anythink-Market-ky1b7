@@ -53,6 +53,7 @@ const reducer = (state = {}, action) => {
         pager: action.pager,
         items: action.payload.items,
         itemsCount: action.payload.itemsCount,
+        searchQuery: action.searchQuery,
         tag: null,
         currentPage: 0,
       };
@@ -65,6 +66,7 @@ const reducer = (state = {}, action) => {
         itemsCount: action.payload[1].itemsCount,
         currentPage: 0,
         tab: action.tab,
+        searchQuery: null,
       };
     case HOME_PAGE_UNLOADED:
       return {};

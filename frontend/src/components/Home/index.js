@@ -20,8 +20,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onTitleSearch: (pager, payload) =>
-    dispatch({ type: APPLY_TITLE_FILTER, pager, payload }),
+  onTitleSearch: (searchQuery, pager, payload) =>
+    dispatch({ type: APPLY_TITLE_FILTER, searchQuery, pager, payload }),
   onClickTag: (tag, pager, payload) =>
     dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
   onLoad: (tab, pager, payload) =>

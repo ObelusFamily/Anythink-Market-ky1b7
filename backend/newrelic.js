@@ -6,7 +6,6 @@
  * description of configuration variables and their potential values.
  */
 exports.config = {
-  // The app_name and license_key are taken from a environment variables
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
